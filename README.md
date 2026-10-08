@@ -110,16 +110,15 @@ The admin role is controlled from the database.
 
 ---
 
-# 🏠 Landing Page
+# 🏠 Landing Page & Authentication
 
 The Pahiya landing page contains a fully animated interface designed around the vehicle booking experience.
 
 The landing page includes:
 
 - Animated navigation
-- Pahiya branding
 - Hero section
-- Vehicle category options
+- Vehicle category slider
 - Book Now CTA
 - 24/7 availability section
 - Scroll animations
@@ -129,15 +128,7 @@ Users can explore the platform without logging in.
 
 Authentication is required when the user attempts to book a vehicle.
 
-### Landing Page
-
-![Pahiya Home Page](./screenshots/Screenshot%202026-10-08%20153056.png)
-
----
-
-# 🔐 Authentication
-
-Pahiya supports multiple authentication methods:
+### Authentication Methods
 
 - Email & Password
 - Google Login
@@ -149,9 +140,23 @@ During registration, an OTP is sent to the user's email and must be verified bef
 
 # 🚗 Partner Onboarding
 
-Users can become partners through the **Become a Partner** workflow.
+Users can become partners through the **Become Partner** workflow.
 
-The partner onboarding process covers:
+The partner onboarding process consists of three major stages:
+
+### 1. Legal Details
+
+Partner provides the required legal information.
+
+### 2. Documents
+
+Partner uploads the required documents.
+
+### 3. Bank Details
+
+Partner submits the required bank information.
+
+After submission, the partner enters the review process.
 
 ```text
 Legal Details
@@ -166,20 +171,16 @@ Video KYC
      ↓
 Vehicle Pricing
      ↓
-Final Review
+Final Approval
      ↓
 Vehicle Goes Live
 ```
-
-### Partner Onboarding
-
-![Partner Onboarding](./screenshots/Screenshot%202026-10-08%20153401.png)
 
 ---
 
 # 📄 Partner Document Verification
 
-After submitting the required documents, the partner enters the review process.
+The admin reviews the submitted partner information and documents.
 
 The admin can:
 
@@ -189,9 +190,9 @@ The partner moves to the next verification stage.
 
 ### ❌ Reject
 
-The admin must provide a rejection reason.
+A rejection reason is mandatory.
 
-The partner can then edit the documents and resubmit them.
+The partner can see the rejection reason and edit the submitted documents.
 
 ```text
 Rejected
@@ -220,14 +221,14 @@ Pahiya uses **ZEGOCLOUD** for real-time video communication.
 - Camera controls
 - Microphone controls
 - Real-time video communication
-- Admin approval/rejection during the call
-- Verification status synchronization
+- Admin can approve or reject during the call
+- Verification status updates on both dashboards
 
 ---
 
 # 🚘 Vehicle Registration & Pricing
 
-Partners can add their vehicles after completing the required verification steps.
+After successful verification, partners can add their vehicles.
 
 Vehicle information includes:
 
@@ -244,21 +245,22 @@ Vehicle information includes:
 - 🏍️ Bike
 - 🛺 Auto
 - 🚗 Car
-- 🚚 Loading
-- 🚛 Truck
+- 🚚 Loading Truck
 
 Multiple partners can operate vehicles under the same category.
 
+The admin reviews the vehicle information and pricing before the vehicle becomes available to users.
+
 ---
 
-# 🔎 Vehicle Booking Flow
+# 🔎 User Booking Flow
 
 The booking workflow starts with:
 
 ```text
 Book Now
    ↓
-Choose Vehicle Category
+Select Vehicle Type
    ↓
 Enter Mobile Number
    ↓
@@ -268,7 +270,7 @@ Select Drop
    ↓
 View Route
    ↓
-Find Nearby Vehicles
+Find Available Vehicles
    ↓
 Select Vehicle
    ↓
@@ -277,42 +279,30 @@ Checkout
 Request Ride
 ```
 
-### Booking Flow
+### Location Selection
 
-![Booking Flow](./screenshots/Screenshot%202026-10-08%20153202.png)
+Users can:
 
----
+- Search locations using autocomplete suggestions
+- Use their current location
+- Select pickup location
+- Select drop location
 
-# 📍 Pickup & Drop Locations
-
-Users can select:
+The map displays:
 
 - Pickup location
 - Drop location
-- Current location
-- Locations through autocomplete suggestions
-
-The application displays the selected locations on the map along with the calculated route.
-
-The route interface displays:
-
-- Pickup marker
-- Drop marker
 - Route
 - Distance
-- Estimated travel time
-
-### Route Map
-
-![Route Map](./screenshots/Screenshot%202026-10-08%20153245.png)
+- Estimated Time of Arrival
 
 ---
 
-# 🚗 Available Vehicles
+# 🚗 Vehicle Selection
 
-After selecting pickup and drop locations, Pahiya searches for available vehicles near the pickup location.
+After selecting pickup and drop locations, Pahiya searches for available vehicles.
 
-Each vehicle card can display:
+Vehicle information can include:
 
 - Vehicle image
 - Vehicle category
@@ -322,19 +312,12 @@ Each vehicle card can display:
 - Per KM price
 - Waiting charge
 - Estimated fare
-- Booking option
-
-### Vehicle Selection
-
-![Vehicle Selection](./screenshots/Screenshot%202026-10-08%20153415.png)
 
 ---
 
 # 💰 Fare Calculation
 
-The estimated ride fare is calculated based on the configured vehicle pricing and ride distance.
-
-Pricing can include:
+The estimated ride fare is calculated using the configured vehicle pricing and ride distance.
 
 ```text
 Base Fare
@@ -354,26 +337,7 @@ Per KM          → ₹10
 Waiting Charge  → ₹2/min
 ```
 
-The final estimated fare is displayed before requesting the ride.
-
----
-
-# 💳 Checkout & Payment
-
-After selecting a vehicle, the user reaches the checkout page.
-
-The checkout displays:
-
-- Selected vehicle
-- Pickup location
-- Drop location
-- Total fare
-- Ride information
-- Request Ride button
-
-### Checkout
-
-![Checkout](./screenshots/Screenshot%202026-10-08%20153530.png)
+The estimated fare is displayed before the user requests the ride.
 
 ---
 
@@ -399,25 +363,25 @@ Partner
 User
 ```
 
-The partner receives the booking request without requiring the page to be manually refreshed.
+The partner receives the booking request without manually refreshing the page.
 
 The partner has a **2-minute response window** to respond to the ride request.
 
 ---
 
-# 💳 Payment Methods
+# 💳 Payment System
 
 Pahiya supports two payment methods.
 
-## 💵 Cash
+## 💵 Cash Payment
 
 The user pays the partner after completing the ride.
 
 ## 💳 Online Payment
 
-The user can complete the payment online through **Razorpay**.
+The user can complete the payment online using **Razorpay**.
 
-Payment status is maintained throughout the ride lifecycle.
+Payment status follows the ride lifecycle:
 
 ```text
 Awaiting Payment
@@ -435,7 +399,7 @@ Paid
 
 Live ride tracking is one of the core features of Pahiya.
 
-The tracking system operates in two phases.
+The tracking system works in two phases.
 
 ## Phase 1 — Driver → Pickup
 
@@ -471,8 +435,6 @@ When the driver's location changes:
 - Route recalculates
 - ETA updates
 - User receives the latest driver position
-
-This provides real-time ride tracking throughout the journey.
 
 ---
 
@@ -520,7 +482,7 @@ Driver Verifies OTP
 Ride Completed
 ```
 
-This provides an additional security layer for both the beginning and end of the ride.
+This provides an additional security layer at both ends of the ride.
 
 ---
 
@@ -552,9 +514,31 @@ Ratings help maintain service quality and provide feedback about the ride experi
 
 ---
 
+# 💰 Revenue Distribution
+
+Pahiya supports automatic revenue splitting between partners and the platform.
+
+### Revenue Split
+
+```text
+Partner → 90%
+Admin   → 10%
+```
+
+For example, for a ₹63 ride:
+
+```text
+Partner → ₹56.70
+Admin   → ₹6.30
+```
+
+The revenue split is calculated automatically after ride completion.
+
+---
+
 # 📊 Partner Dashboard
 
-The partner dashboard provides an overview of the partner's activity.
+The partner dashboard provides an overview of partner activity.
 
 It includes:
 
@@ -566,15 +550,13 @@ It includes:
 - Booking status
 - Vehicle information
 
-### Partner Bookings
-
-![Partner Bookings](./screenshots/Screenshot%202026-10-08%20153511.png)
+Partners can manage their active rides and incoming booking requests from the dashboard.
 
 ---
 
 # 💵 Partner Earnings
 
-Partners can view their earnings through the earnings dashboard.
+Partners can monitor their earnings through the earnings dashboard.
 
 The dashboard provides:
 
@@ -584,10 +566,6 @@ The dashboard provides:
 - Current day earnings
 - Weekly total
 - Earnings chart
-
-### Partner Earnings
-
-![Partner Earnings](./screenshots/Screenshot%202026-10-08%20153545.png)
 
 ---
 
@@ -605,10 +583,9 @@ It includes:
 - Pending Video KYC
 - Pending vehicle reviews
 - Platform earnings
+- Review notifications
 
-### Admin Dashboard
-
-![Admin Dashboard](./screenshots/Screenshot%202026-10-08%20153441.png)
+The admin can review partner documents and manage approval workflows from the dashboard.
 
 ---
 
@@ -619,14 +596,10 @@ The admin can monitor platform earnings through the admin earnings dashboard.
 The dashboard provides:
 
 - Weekly total
-- Best day
+- Best earning day
 - Daily average
 - Today's earnings
 - Earnings chart
-
-### Admin Earnings
-
-![Admin Earnings](./screenshots/Screenshot%202026-10-08%20153530.png)
 
 ---
 
@@ -708,14 +681,12 @@ PahiyaOg/
 │   ├── package-lock.json
 │   └── .gitignore
 │
-├── screenshots/
-│
 └── README.md
 ```
 
 ---
 
-# ⚙️ Installation
+# ⚙️ Installation & Setup
 
 ## 1. Clone Repository
 
@@ -789,7 +760,7 @@ http://localhost:3000
 
 # ⚡ Run Socket Server
 
-Open another terminal.
+Open another terminal:
 
 ```bash
 cd socketServer
