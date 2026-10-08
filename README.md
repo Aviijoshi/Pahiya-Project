@@ -55,7 +55,7 @@ Users can:
 - Select vehicle categories
 - Select pickup and drop locations
 - View route, distance and ETA
-- View available vehicles near pickup
+- View available vehicles
 - Compare vehicle pricing
 - Request a ride
 - Pay using Cash or Online Payment
@@ -131,7 +131,7 @@ Authentication is required when the user attempts to book a vehicle.
 
 ### Landing Page
 
-![Pahiya Home Page](./screenshots/home.png)
+![Pahiya Home Page](./screenshots/Screenshot%202026-10-08%20153056.png)
 
 ---
 
@@ -171,20 +171,9 @@ Final Review
 Vehicle Goes Live
 ```
 
-### Partner Onboarding Dashboard
+### Partner Onboarding
 
-The onboarding progress is represented through multiple stages including:
-
-- Vehicle
-- Documents
-- Bank
-- Review
-- Video KYC
-- Pricing
-- Final Review
-- Live
-
-![Partner Onboarding](./screenshots/partner-onboarding.png)
+![Partner Onboarding](./screenshots/Screenshot%202026-10-08%20153401.png)
 
 ---
 
@@ -288,11 +277,9 @@ Checkout
 Request Ride
 ```
 
-### Booking Interface
+### Booking Flow
 
-Users first select the type of vehicle they want.
-
-![Booking Flow](./screenshots/booking-flow.png)
+![Booking Flow](./screenshots/Screenshot%202026-10-08%20153202.png)
 
 ---
 
@@ -315,7 +302,9 @@ The route interface displays:
 - Distance
 - Estimated travel time
 
-![Route Map](./screenshots/route-map.png)
+### Route Map
+
+![Route Map](./screenshots/Screenshot%202026-10-08%20153245.png)
 
 ---
 
@@ -335,7 +324,9 @@ Each vehicle card can display:
 - Estimated fare
 - Booking option
 
-![Available Vehicle](./screenshots/vehicle-selection.png)
+### Vehicle Selection
+
+![Vehicle Selection](./screenshots/Screenshot%202026-10-08%20153415.png)
 
 ---
 
@@ -355,7 +346,7 @@ Waiting Charge
 Total Fare
 ```
 
-For example:
+Example:
 
 ```text
 Base Fare       → ₹40
@@ -380,9 +371,9 @@ The checkout displays:
 - Ride information
 - Request Ride button
 
-The partner is expected to respond within the configured response window.
+### Checkout
 
-![Checkout](./screenshots/checkout.png)
+![Checkout](./screenshots/Screenshot%202026-10-08%20153530.png)
 
 ---
 
@@ -561,28 +552,6 @@ Ratings help maintain service quality and provide feedback about the ride experi
 
 ---
 
-# 💰 Revenue Distribution
-
-Pahiya supports automatic revenue splitting between partners and the platform.
-
-### Revenue Split
-
-```text
-Partner → 90%
-Admin   → 10%
-```
-
-For example, for a ₹63 ride:
-
-```text
-Partner → ₹56.70
-Admin   → ₹6.30
-```
-
-The revenue split is calculated automatically after ride completion.
-
----
-
 # 📊 Partner Dashboard
 
 The partner dashboard provides an overview of the partner's activity.
@@ -599,17 +568,7 @@ It includes:
 
 ### Partner Bookings
 
-Partners can view their assigned bookings along with:
-
-- Customer information
-- Pickup location
-- Drop location
-- Vehicle
-- Booking status
-- Payment status
-- Fare
-
-![Partner Bookings](./screenshots/partner-bookings.png)
+![Partner Bookings](./screenshots/Screenshot%202026-10-08%20153511.png)
 
 ---
 
@@ -626,7 +585,9 @@ The dashboard provides:
 - Weekly total
 - Earnings chart
 
-![Partner Earnings](./screenshots/partner-earnings.png)
+### Partner Earnings
+
+![Partner Earnings](./screenshots/Screenshot%202026-10-08%20153545.png)
 
 ---
 
@@ -645,13 +606,15 @@ It includes:
 - Pending vehicle reviews
 - Platform earnings
 
-![Admin Dashboard](./screenshots/admin-dashboard.png)
+### Admin Dashboard
+
+![Admin Dashboard](./screenshots/Screenshot%202026-10-08%20153441.png)
 
 ---
 
 # 💰 Admin Earnings
 
-The admin can monitor the platform's earnings through the admin earnings dashboard.
+The admin can monitor platform earnings through the admin earnings dashboard.
 
 The dashboard provides:
 
@@ -661,7 +624,9 @@ The dashboard provides:
 - Today's earnings
 - Earnings chart
 
-![Admin Earnings](./screenshots/admin-earnings.png)
+### Admin Earnings
+
+![Admin Earnings](./screenshots/Screenshot%202026-10-08%20153530.png)
 
 ---
 
@@ -704,10 +669,6 @@ The dashboard provides:
 - Browser Geolocation API
 - Location autocomplete
 
-## Real-Time Communication
-
-- Socket.IO
-
 ## Video KYC
 
 - ZEGOCLOUD
@@ -748,16 +709,6 @@ PahiyaOg/
 │   └── .gitignore
 │
 ├── screenshots/
-│   ├── home.png
-│   ├── booking-flow.png
-│   ├── route-map.png
-│   ├── vehicle-selection.png
-│   ├── checkout.png
-│   ├── partner-onboarding.png
-│   ├── partner-bookings.png
-│   ├── partner-earnings.png
-│   ├── admin-dashboard.png
-│   └── admin-earnings.png
 │
 └── README.md
 ```
@@ -798,7 +749,7 @@ Create:
 .env.local
 ```
 
-Add your required environment variables.
+Add the environment variables required by the application.
 
 Example:
 
@@ -856,7 +807,7 @@ Create:
 .env
 ```
 
-Add the required Socket.IO server environment variables.
+Add the environment variables required by the Socket.IO server.
 
 Example:
 
